@@ -1,0 +1,81 @@
+
+
+// import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+
+// export default class QuizResults extends BaseSchema {
+//   protected tableName = 'quiz_results'
+
+//   public async up() {
+//     this.schema.createTable(this.tableName, (table) => {
+//       table.increments('id')
+//       table.integer("user_id").unsigned().references("id").inTable("users").notNullable().onDelete("CASCADE").onUpdate("CASCADE")
+//       table.integer("marks").notNullable();
+//       table.integer("test_no").notNullable();
+//       table.integer("user_input_id").unsigned().references("id").inTable("user_question_answers").notNullable()
+
+//       table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
+//       table.timestamp('updated_at', { useTz: true }).defaultTo(this.now())
+//     })
+//   }
+
+//   public async down() {
+//     this.schema.dropTable(this.tableName)
+//   }
+// }
+
+
+
+// 2
+
+
+// import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+
+// export default class UserQuestionAnswers extends BaseSchema {
+//     protected tableName = 'user_question_answers'
+
+//     public async up() {
+//         this.schema.createTable(this.tableName, (table) => {
+//             table.increments('id')
+
+//             table.integer("user_id").unsigned().references("id").inTable("users").notNullable().onDelete("CASCADE").onUpdate("CASCADE")
+
+//             table.integer("question_id").unsigned().references("id").inTable("questions").notNullable().onDelete("CASCADE").onUpdate("CASCADE")
+
+//             table.integer("user_choice").notNullable();
+
+//             table.integer("correct_ans_id").unsigned().references("id").inTable("solutions")
+
+//             table.integer("test_no").notNullable();
+
+//             table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
+//             table.timestamp('updated_at', { useTz: true }).defaultTo(this.now())
+//         })
+//     }
+
+//     public async down() {
+//         this.schema.dropTable(this.tableName)
+//     }
+// }
+
+
+// 3
+
+// import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+
+// export default class Solutions extends BaseSchema {
+//   protected tableName = 'solutions'
+
+//   public async up() {
+//     this.schema.createTable(this.tableName, (table) => {
+//       table.increments('id')
+//       table.integer("question_id").unsigned().references("id").inTable("questions").notNullable().onDelete("CASCADE").onUpdate("CASCADE")
+//       table.integer("ans").notNullable();
+//       table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
+//       table.timestamp('updated_at', { useTz: true }).defaultTo(this.now())
+//     })
+//   }
+
+//   public async down() {
+//     this.schema.dropTable(this.tableName)
+//   }
+// }

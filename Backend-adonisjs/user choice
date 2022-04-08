@@ -1,0 +1,52 @@
+user choices
+public async up() {
+
+        this.schema.createTable(this.tableName, (table) => {
+            table.increments('id')
+
+            table.integer("user_id").unsigned().references("id").inTable("users").
+                onDelete("CASCADE").onUpdate("CASCADE");
+
+            table.integer("question_id")
+
+            table.integer("user_choice").notNullable();
+
+            table.integer("solution_id")
+
+
+            table.integer("test_no").notNullable();
+
+            table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
+            table.timestamp('updated_at', { useTz: true }).defaultTo(this.now())
+        })
+    }
+
+    public async down() {
+        this.schema.dropTable(this.tableName)
+    }
+
+
+
+
+
+
+@column({ isPrimary: true })
+	public id: number
+
+	@column()
+	public user_id: number
+	@column()
+	public question_id: number
+	@column()
+	public user_choice: number
+	@column()
+	public solution_id: number
+	@column()
+	public test_no: number
+
+	@column.dateTime({ autoCreate: true })
+	public createdAt: DateTime
+
+	@column.dateTime({ autoCreate: true, autoUpdate: true })
+	public updatedAt: DateTime
+
